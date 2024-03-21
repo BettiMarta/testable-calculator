@@ -1,5 +1,5 @@
 Number = int | float
-
+from math import *
 
 class Calculator:
 
@@ -37,6 +37,18 @@ class Calculator:
 
     def clear(self):
         self.expression = ""
+
+    def sqr(self):
+        self._append("sqrt(")
+    
+    def op(self):
+        self._append("(")
+    
+    def cp(self):
+        self._append(")")
+
+    def power(self):
+        self._append("**")
     
     def compute_result(self) -> Number:
         try:

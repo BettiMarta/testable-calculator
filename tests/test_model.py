@@ -49,3 +49,30 @@ class TestCalculatorUsage(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             self.calculator.compute_result()
         self.assertEqual("Invalid expression: 1+", str(context.exception))
+class Testforcomplexexpression(unittest.TestCase):
+    def sqr(self):
+        self.calculator.sqr()
+        self.calculator.digit(4)
+        self.assertEqual("sqrt(4)", self.calculator.expression)
+        self.assertEqual("2", self.calculator.compute_result())
+
+    def power(self):
+        self.calculator.digit(2)
+        self.calculator.power()
+        self.calculator.digit(3)
+        self.assertEqual("2**3", self.calculator.expression)
+        self.assertEqual("8", self.calculator.compute_result())
+    
+    def op(self):
+        self.calculator.op("(")
+        self.calculator.digit(3)
+        self.calculator.plus()
+        self.calculator.digit(1)
+        self.assertEqual("(3+1", self.calculator.expression)
+
+    def cp(self):
+        self.calculator.digit(3)
+        self.calculator.plus()
+        self.calculator.digit(1)
+        self.calculator.op(")")
+        self.assertEqual("3+1)", self.calculator.expression)

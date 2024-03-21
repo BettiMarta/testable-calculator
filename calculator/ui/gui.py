@@ -6,6 +6,7 @@ from calculator import Calculator
 
 
 BUTTONS_NAMES = [
+    ["(",")","^","√"],
     ['7', '8', '9', '/'],
     ['4', '5', '6', '*'],
     ['1', '2', '3', '-'],
@@ -61,6 +62,14 @@ class CalculatorApp(App):
                 self._calc.minus()
             case "*":
                 self._calc.multiply()
+            case "(":
+                self._calc.op()
+            case ")":
+                self._calc.cp()
+            case "√":
+                self._calc.sqr()
+            case "^":
+                self._calc.power()
             case "/":
                 self._calc.divide()
             case ".":
